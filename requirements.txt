@@ -1,0 +1,28 @@
+# Required
+shiny
+dockerspawner
+jupyterhub-nativeauthenticator
+jhsingle-native-proxy
+
+# Optional Shiny
+shinywidgets
+shinyswatch # Shiny themes
+ipywidgets
+
+# Optional Plots
+plotly
+ipyleaflet
+plotnine
+matplotlib
+
+# Optional Data science
+pandas
+numpy
+
+# Optional Others
+jupytext
+astropy
+isodate
+statsmodels
+htmltools
+urllib2

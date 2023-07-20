@@ -1,0 +1,32 @@
+# Base image
+FROM polusai/notebook:0.9.11
+
+# Set working directory
+WORKDIR /usr/local/pshiny
+
+# Install jhsingle
+RUN pip3 install --no-cache-dir --upgrade jhsingle-native-proxy==0.8.1
+
+# Copy the relevant files
+COPY ./pshiny .
+COPY ./common ./
+
+# Use the root user to run the change to the revelant permissions
+USER root
+RUN apt-get update && \
+    apt-get install -y jq
+RUN mkdir -p /usr/local/pshiny/app && \
+    chown $NB_USER:$NB_GID /usr/local/pshiny/app
+RUN chmod +x /usr/local/pshiny/pshiny-wrapper.sh
+
+# Switch User
+USER jovyan
+
+# Install the relevant shiny dependencies from requirement file
+RUN pip3 install --no-cache-dir --upgrade  -r requirements.txt -t /usr/local/pshiny/app
+
+# Set environment
+ENV PYTHONPATH=/usr/local/pshiny/app:$PYTHONPATH
+
+# Set entrypoint
+ENTRYPOINT /usr/local/pshiny/pshiny-wrapper.sh
