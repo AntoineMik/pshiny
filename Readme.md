@@ -1,5 +1,5 @@
 # Overview
-This application utilizes a [jhsingle-native-proxy] (https://pypi.org/project/jhsingle-native-proxy/) to run a [Shiny for Python](https://shiny.posit.co/py/) application. In the full application, Jupyterhub acts as the hub for creating and destroying these jhsingle-native-proxy servers in place of Jupyter notebook servers.
+This application utilizes a [jhsingle-native-proxy](https://pypi.org/project/jhsingle-native-proxy/) to run a [Shiny for Python](https://shiny.posit.co/py/) application. In the full application, Jupyterhub acts as the hub for creating and destroying these jhsingle-native-proxy servers in place of Jupyter notebook servers.
 
 # Shiny for Python
 Shiny is a framework for web applications that allows users to build interactive data visualizations and dashboards.
@@ -25,7 +25,7 @@ OAuth authentication is enforced based on JUPYTERHUB_* environment variables.
 
 # Examples
 ## Plot output based on slider value
-```
+```dotnetcli
 import matplotlib.pyplot as plt
 import numpy as np
 from shiny import App, render, ui
