@@ -1,12 +1,12 @@
 # Overview
-This application utilizes a [jhsingle-native-proxy](https://pypi.org/project/jhsingle-native-proxy/) to run a [Shiny for Python](https://shiny.posit.co/py/) application. In the full application, Jupyterhub acts as the hub for creating and destroying these jhsingle-native-proxy servers in place of Jupyter notebook servers.
+This application utilizes a [jhsingle-native-proxy](https://pypi.org/project/jhsingle-native-proxy/) to wrap a [Shiny for Python](https://shiny.posit.co/py/) application.
 
 # Shiny for Python
 Shiny is a framework for web applications that allows users to build interactive data visualizations and dashboards.
 
 Its key features include fast and simple development of web applications, smooth integration with popular Python libraries for data visualization and analysis. Responsive and dynamic user interfaces and real-time updates for interactive user experiences.
 
-Shiny is Powerful, Customizable, Compatible with Python datascience Packages, and Production ready.
+Shiny is powerful, customizable, compatible with Python datascience Packages, and Production ready.
 
 # jhsingle-native-proxy
 jhsingle-native-proxy wraps an arbitrary webapp so it can be used in place of jupyter-singleuser in a JupyterHub setting.
@@ -25,7 +25,7 @@ OAuth authentication is enforced based on JUPYTERHUB_* environment variables.
 
 # Examples
 ## Plot output based on slider value
-```dotnetcli
+```python
 import matplotlib.pyplot as plt
 import numpy as np
 from shiny import App, render, ui
@@ -61,6 +61,6 @@ app = App(app_ui, server)
 # Important Consideration
 
 ## Containerizing Shiny for Python
-Shiny for Python uses [Uvicorn](https://www.uvicorn.org/) to containerize its apps. It is a common way of containerizing apps using [FastAPI deployments](https://fastapi.tiangolo.com/deployment/docker/).
+Shiny for Python uses [Uvicorn](https://www.uvicorn.org/) to serve its apps.
 
-To run the Shiny for python app in the docker container, it is necessary to use Uvicorn run commands instead of the typical Shiny run commands to expose the app outside the container.
+To run the Shiny for Python app in the Docker container, it is necessary to use Uvicorn run commands instead of the typical Shiny run commands to expose the app outside the container.
